@@ -11,6 +11,18 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => res.json(users));
 
 
+//GET /user/:id
+app.get('/user/:id', (req, res) => {
+    let user = users.find(user => user.id == req.params.id);
+    res.json(user);
+});
+
+//POST id{0}
+app.post('/user', (req, res) => {    
+    users.push({ id: 0 });    
+    res.json(users);
+});
+
 //Port
 app.listen(3000, () => {
     console.log('Listen on port 3000');
