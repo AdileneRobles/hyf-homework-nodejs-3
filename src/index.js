@@ -27,15 +27,17 @@ app.post('/user', (req, res) => {
 app.delete('/user/:id', (req, res) => {
     try{
         if(users){
-            res.status(200).json({
-                ok: true
-            }) 
-        }else{
-            res.status(204).json({
+            res.status(200).json( {
                 ok: true
             }) 
         }
-    }catch(err){
+        else{
+            res.status(204).json( {
+                ok: true
+            }) 
+        }
+    }
+    catch(err){
         next(err);
     }
 });
