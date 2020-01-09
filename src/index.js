@@ -12,13 +12,13 @@ app.get('/users', (req, res) => res.json(users));
 
 
 //GET /user/:id
-app.get('/users/:id', (req, res) => {
+app.get('/user/:id', (req, res) => {
     let user = users.find(user => user.id == req.params.id);
     res.json(user);
 });
 
 //POST id{0}
-app.post('/users', (req, res) => {    
+app.post('/user', (req, res) => {    
     users.push({ id: 0 });    
     res.json(users);
 });
