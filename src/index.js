@@ -25,21 +25,19 @@ app.post('/user', (req, res) => {
 
 //DELETE /user/:id
 app.delete('/user/:id', (req, res) => {
-    try{
-        if(users){
-            res.status(200).json( {
-                ok: true
-            }) 
-        }
-        else{
-            res.status(204).json( {
-                ok: true
-            }) 
-        }
+
+   
+    if(users.length > 0){
+        users = [];
+        res.status(202).json({
+            ok: true
+        })
+    } else {
+        res.status(204).json({
+            ok: true
+        })
     }
-    catch(err){
-        next(err);
-    }
+
 });
 
 //Port
