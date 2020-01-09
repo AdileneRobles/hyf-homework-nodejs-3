@@ -23,6 +23,23 @@ app.post('/user', (req, res) => {
     res.json(users);
 });
 
+//DELETE /user/:id
+app.delete('/user/:id', (req, res) => {
+
+   
+    if(users.length > 0){
+        users = [];
+        res.status(202).json({
+            ok: true
+        })
+    } else {
+        res.status(204).json({
+            ok: true
+        })
+    }
+
+});
+
 //Port
 app.listen(3000, () => {
     console.log('Listen on port 3000');
